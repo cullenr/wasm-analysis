@@ -33,9 +33,9 @@ wat2wasm output:
 ```
 ## WAT from WASM
 
-Note the type section which is not present in the original WAT. The wat2wasm
-output below also contains comments indicating the indicies that link the type
-and func elements; `(;` and `;)` delimit block comments.
+Note the type section which is not present in the original WAT. The `wast2wasm`
+output below also contains comments indicating the indices that link the _type_
+and _func_ elements; `(;` and `;)` delimit block comments.
 
 ```
 (module
@@ -49,7 +49,7 @@ and func elements; `(;` and `;)` delimit block comments.
 
 ## [Module] Breakdown
 
-The wasm file starts of with a module definition.  According to the spec a
+The WASM file starts of with a module definition.  According to the spec a
 module is formatted like so `magic, version, sections`.
 
 
@@ -57,7 +57,7 @@ module is formatted like so `magic, version, sections`.
 
 `0061 736d` : magic number
 
-`0100 0000` : wasm version
+`0100 0000` : WASM version
 
 ### [Sections](https://webassembly.github.io/spec/core/binary/modules.html#sections)
 
@@ -72,7 +72,7 @@ data | description
 `01` | section id for type-section
 `07` | length of section in bytes (note the 7 bytes below)
 `01` | the length of the functype vector that the type-section expects
-`60` | functype opcodea (two vectors follow for params and results respectively)
+`60` | functype opcode (two vectors follow for params and results respectively)
 `02` | the length of the valtype vector of params
 `7d` | the opcode for 32 bit float (1st param)
 `7d` | the opcode for 32 bit float (2nd param)
@@ -112,11 +112,11 @@ data | description
 `07` | length of the [func] in bytes
 `00` | length of the locals array - 0 so no locals are present. 
 `20` | start of the expression section - 0x20 is the local.get instruction
-`00` | id for locla.get for the first param
+`00` | id for local.get for the first param
 `20` | second call to local.get to get param 2
 `01` | id for local.get for the second param
 `92` | the opcode for f32.add
-`0b` | end of the expression dentoed by the end opcode 0x0b
+`0b` | end of the expression denoted by the end opcode 0x0b
 
 data | description
 -----|------------
