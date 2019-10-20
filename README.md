@@ -66,50 +66,60 @@ followed by a function-section
 
 `0107 0160 027d 7d01 7d` : [typesec]
 
-`01` : section id for type-section
-`07` : length of section in bytes (note the 7 bytes below)
-`01` : the length of the functype vector that the type-section expects
-`60` : functype opcodea (two vectors follow for params and results respectively)
-`02` : the length of the valtype vector of params
-`7d` : the opcode for 32 bit float (1st param)
-`7d` : the opcode for 32 bit float (2nd param)
-`01` : the length of the valtype vector of results
-`7d` : the opcode for 32 bit float (return value)
+data | description
+-----|------------
+`01` | section id for type-section
+`07` | length of section in bytes (note the 7 bytes below)
+`01` | the length of the functype vector that the type-section expects
+`60` | functype opcodea (two vectors follow for params and results respectively)
+`02` | the length of the valtype vector of params
+`7d` | the opcode for 32 bit float (1st param)
+`7d` | the opcode for 32 bit float (2nd param)
+`01` | the length of the valtype vector of results
+`7d` | the opcode for 32 bit float (return value)
 
 `03 0201 00` [funcsec] 
 
-`03` : section id for function-section
-`02` : length of this section in bytes
-`01` : length of the functype vector that the function-section expects
-`00` : the index of the code body in the code-section below.
+data | description
+-----|------------
+`03` | section id for function-section
+`02` | length of this section in bytes
+`01` | length of the functype vector that the function-section expects
+`00` | the index of the code body in the code-section below.
 
 `07 0701 0361 6464 0000` [exportsec]
 
-`07` : section id for export-section
-`07` : length of this section in bytes
-`01` : length of the export vector that the export-section expects
-`03` : length of the byte arr for this exports _name_ "add"
-`61` : byte 'a'
-`64` : byte 'd'
-`64` : byte 'd'
-`00` : declare this export is a function
-`00` : the id of the function to export, in this case 00
+data | description
+-----|------------
+`07` | section id for export-section
+`07` | length of this section in bytes
+`01` | length of the export vector that the export-section expects
+`03` | length of the byte arr for this exports _name_ "add"
+`61` | byte 'a'
+`64` | byte 'd'
+`64` | byte 'd'
+`00` | declare this export is a function
+`00` | the id of the function to export, in this case 00
 
 `0a09 0107 0020 0020 0192 0b` [codesec]
 
-`0a` : section id for code-section
-`10` : length of this section in bytes
-`01` : length of the [code] vector that the code-section expects 
-`07` : length of the [func] in bytes
-`00` : length of the locals array - 0 so no locals are present. 
-`20` : start of the expression section - 0x20 is the local.get instruction
-`00` : id for locla.get for the first param
-`20` : second call to local.get to get param 2
-`01` : id for local.get for the second param
-`92` : the opcode for f32.add
-`0b` : end of the expression dentoed by the end opcode 0x0b
+data | description
+-----|------------
+`0a` | section id for code-section
+`10` | length of this section in bytes
+`01` | length of the [code] vector that the code-section expects 
+`07` | length of the [func] in bytes
+`00` | length of the locals array - 0 so no locals are present. 
+`20` | start of the expression section - 0x20 is the local.get instruction
+`00` | id for locla.get for the first param
+`20` | second call to local.get to get param 2
+`01` | id for local.get for the second param
+`92` | the opcode for f32.add
+`0b` | end of the expression dentoed by the end opcode 0x0b
 
-`0a` : this is marked as reserved but undocumented in the [spec](https://webassembly.github.io/spec/core/bikeshed/index.html#a7-index-of-instructions)
+data | description
+-----|------------
+`0a` | this is marked as reserved but undocumented in the [spec](https://webassembly.github.io/spec/core/bikeshed/index.html#a7-index-of-instructions)
 
 [WABT]: https://github.com/WebAssembly/wabt
 [Module]:https://webassembly.github.io/spec/core/binary/modules.html#binary-module
