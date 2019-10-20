@@ -47,19 +47,19 @@ and func elements; `(;` and `;)` delimit block comments.
   (export "add" (func 0)))
 ```
 
-## Breakdown
+## [Module] Breakdown
 
 The wasm file starts of with a module definition.  According to the spec a
 module is formatted like so `magic, version, sections`.
 
-[link](https://webassembly.github.io/spec/core/binary/modules.html#binary-module)
 
-## Preamble
+### [Module] Preamble
 
 `0061 736d` : magic number
+
 `0100 0000` : wasm version
 
-## [Sections](https://webassembly.github.io/spec/core/binary/modules.html#sections)
+### [Sections](https://webassembly.github.io/spec/core/binary/modules.html#sections)
 
 The sections portion of the module starts with a type-section (typesec) and is
 followed by a function-section
@@ -112,6 +112,7 @@ followed by a function-section
 `0a` : this is marked as reserved but undocumented in the [spec](https://webassembly.github.io/spec/core/bikeshed/index.html#a7-index-of-instructions)
 
 [WABT]: https://github.com/WebAssembly/wabt
+[Module]:https://webassembly.github.io/spec/core/binary/modules.html#binary-module
 
 [typesec]:https://webassembly.github.io/spec/core/binary/modules.html#type-section
 [funcsec]:https://webassembly.github.io/spec/core/binary/modules.html#function-section 
