@@ -1,13 +1,14 @@
-
-# TODO add a new function to the module so we can see how this affects the original and also make the new function contain a local - a ++ function maybe.
-
 # WASM Analysis
 
-https://webassembly.github.io/reference-types/core/_download/WebAssembly.pdf
+This document provides notes on the WASM for a simple function named 'add' that
+returns the sum of two arguments, all values are of type float. 
 
-This document provides notes on a simple function to add to floats and return
-them named `add`. Tools used to generate .wasm and .wat are from the [WABT]
-project.
+Tools used to generate .wasm and .wat are from the [WABT] project. The
+[repository](https://github.com/cullenr/wasm-analysis) for this document
+contains compiled Linux binaries for convenience.
+
+The WASM specification can be found here
+https://webassembly.github.io/spec/core/bikeshed/index.html
 
 ## WAT
 
@@ -51,9 +52,8 @@ module is formatted like so `magic, version, sections`.
 
 ## Preamble
 
-0061 736d : magic number
-
-0100 0000 : wasm version
+`0061 736d` : magic number
+`0100 0000` : wasm version
 
 ## [Sections](https://webassembly.github.io/spec/core/binary/modules.html#sections)
 
@@ -77,7 +77,7 @@ followed by a function-section
 `03` : section id for function-section
 `02` : length of this section in bytes
 `01` : length of the functype vector that the function-section expects
-`00` : whats this? is this the id of the index space?
+`00` : the index of the code body in the code-section below.
 
 `07 0701 0361 6464 0000` [exportsec]
 
@@ -105,7 +105,7 @@ followed by a function-section
 `92` : the opcode for f32.add
 `0b` : end of the expression dentoed by the end opcode 0x0b
 
-`0a`
+`0a` : this is marked as reserved but undocumented in the [spec](https://webassembly.github.io/spec/core/bikeshed/index.html#a7-index-of-instructions)
 
 [WABT]: https://github.com/WebAssembly/wabt
 
@@ -113,6 +113,11 @@ followed by a function-section
 [funcsec]:https://webassembly.github.io/spec/core/binary/modules.html#function-section 
 [exportsec]:https://webassembly.github.io/spec/core/binary/modules.html#export-section
 
+[index]:https://webassembly.github.io/spec/core/binary/modules.html#indices
 [functype]:https://webassembly.github.io/spec/core/binary/types.html#binary-functype
+[codesec]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
 [code]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
 [func]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
+
+**TODO:** add a new function to the module so we can see how this affects the
+original and also make the new function contain a local - a ++ function maybe.
