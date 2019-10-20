@@ -61,8 +61,9 @@ module is formatted like so `magic, version, sections`.
 
 ### [Sections](https://webassembly.github.io/spec/core/binary/modules.html#sections)
 
-The sections portion of the module starts with a type-section (typesec) and is
-followed by a function-section
+The sections portion of the module starts with a type-section ([typesec]) and is
+followed by a function-section ([funcsec]), export-section ([exportsec]) and
+finally a code-section ([codesec]).
 
 `0107 0160 027d 7d01 7d` : [typesec]
 
@@ -127,10 +128,10 @@ data | description
 [typesec]:https://webassembly.github.io/spec/core/binary/modules.html#type-section
 [funcsec]:https://webassembly.github.io/spec/core/binary/modules.html#function-section 
 [exportsec]:https://webassembly.github.io/spec/core/binary/modules.html#export-section
+[codesec]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
 
 [index]:https://webassembly.github.io/spec/core/binary/modules.html#indices
 [functype]:https://webassembly.github.io/spec/core/binary/types.html#binary-functype
-[codesec]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
 [code]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
 [func]:https://webassembly.github.io/spec/core/binary/modules.html#code-section 
 
