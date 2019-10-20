@@ -53,7 +53,7 @@ The wasm file starts of with a module definition.  According to the spec a
 module is formatted like so `magic, version, sections`.
 
 
-### [Module] Preamble
+### [Preamble][Module] 
 
 `0061 736d` : magic number
 
