@@ -4,7 +4,7 @@ This document provides notes on the WASM for a simple function named 'add' that
 returns the sum of two arguments, all values are of type float. 
 
 Tools used to generate .wasm and .wat are from the [WABT] project. The
-[repository](https://github.com/cullenr/wasm-analysis) for this document
+repository (https://github.com/cullenr/wasm-analysis) for this document
 contains compiled Linux binaries for convenience.
 
 The WASM specification can be found here
