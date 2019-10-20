@@ -12,6 +12,8 @@ https://webassembly.github.io/spec/core/bikeshed/index.html
 
 ## WAT
 
+This is the source code (WAT) used to generate the WASM:
+
 ```
 (module
  (func $add (param f32) (param f32) (result f32)
@@ -31,7 +33,9 @@ wat2wasm output:
 ```
 ## WAT from WASM
 
-Note the type section which is not present in the original WAT. wat2wasm output:
+Note the type section which is not present in the original WAT. The wat2wasm
+output below also contains comments indicating the indicies that link the type
+and func elements; `(;` and `;)` delimit block comments.
 
 ```
 (module
