@@ -29,7 +29,7 @@ wat2wasm output:
 ```
 00000000: 0061 736d 0100 0000 0107 0160 027d 7d01  .asm.......`.}}.
 00000010: 7d03 0201 0007 0701 0361 6464 0000 0a09  }........add....
-00000020: 0107 0020 0020 0192 0b0a                 ... . ....
+00000020: 0107 0020 0020 0192 0b                   ... . ...
 ```
 ## WAT from WASM
 
@@ -118,9 +118,6 @@ data | description
 `92` | the opcode for f32.add
 `0b` | end of the expression denoted by the end opcode 0x0b
 
-data | description
------|------------
-`0a` | this is marked as reserved but undocumented in the [spec](https://webassembly.github.io/spec/core/bikeshed/index.html#a7-index-of-instructions)
 
 [WABT]: https://github.com/WebAssembly/wabt
 [Module]:https://webassembly.github.io/spec/core/binary/modules.html#binary-module
