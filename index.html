@@ -1,0 +1,20 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        WebAssembly.instantiateStreaming(fetch('add.wasm'))
+            .then(obj => {
+                console.log(obj.instance.exports.add(2, 2));
+            });
+        WebAssembly.instantiateStreaming(fetch('global.wasm'), {exports: {glob: 11}} )
+            .then(obj => {
+                console.log(obj.instance.exports["const i32"]);
+            });
+    </script>
+  </body>
+</html>
+
